@@ -1,0 +1,100 @@
+/* Base container styling */
+.student-profile-container {
+  margin: 0 auto;
+  padding: 20px;
+  height: 900px;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  flex-direction: column; /* Stack the items vertically on small screens */
+  text-align: center; /* Center text on small screens */
+}
+
+.profile-content {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  flex-wrap: wrap; /* Allow wrapping of the content on smaller screens */
+  gap: 20px;
+}
+
+/* Adjust layout for small screens */
+@media (max-width: 768px) {
+  .profile-header {
+    flex-direction: column; /* Stack items vertically on small screens */
+    text-align: center; /* Center text */
+  }
+
+  .profile-content {
+    flex-direction: column; /* Stack content vertically */
+    gap: 15px;
+  }
+
+  .personal-info, .extra-info {
+    width: 100%; /* Stack the content vertically on small screens */
+    padding: 10px;
+  }
+
+  .profile-picture img {
+    width: 80px; /* Resize profile picture on smaller screens */
+    height: 80px;
+  }
+}
+
+/* For large screens (default) */
+.personal-info, .extra-info {
+  width: 48%; /* Two columns on larger screens */
+}
+
+h2 {
+  margin-bottom: 15px;
+}
+
+p {
+  margin-bottom: 10px;
+}
+
+button {
+  transition: transform 0.3s ease-in-out;
+}
+
+button:hover {
+  transform: translateY(-3px);
+}
+
+/* Styling the profile picture */
+.profile-picture img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Styling the internship history list */
+.internship-history {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.internship-history li {
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 16px;
+}
+
+.internship-history li strong {
+  font-weight: bold;
+}
+
+/* Add padding and alignment to buttons for mobile */
+@media (max-width: 768px) {
+  .profile-content {
+    padding: 10px; /* Add padding on small screens */
+  }
+  button {
+   /* Make buttons full-width on small screens */
+    padding: 10px;
+  }
+}
