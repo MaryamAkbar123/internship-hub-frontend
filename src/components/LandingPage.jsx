@@ -252,17 +252,53 @@ useEffect(() => {
                     { name: "Internships", ref: internshipsRef },
                     { name: "Contact Us", ref: contactRef },
                   ].map((item) => (
-                    <motion.li
-                      key={item.name}
-                      initial={{ x: -20, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      transition={{ duration: 0.3 }}
-                      className="font-semibold text-lg border-b border-blue-700 pb-2 hover:text-blue-300 cursor-pointer"
-                      onClick={() => scrollToSection(item.ref)}
+                <motion.li
+                  key={item.name}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="font-semibold hover:text-blue-300 cursor-pointer transition-colors"
+                  onClick={() => scrollToSection(item.ref)}
+                >
+                  {item.name}
+                </motion.li>
+              ))}
+
+              {/* Login Button */}
+              <motion.div className="relative">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center bg-blue-800 text-white px-4 py-2 rounded-xl hover:bg-blue-700 transition-all border-2 border-white"
+                  onClick={toggleDropdown}
+                >
+                  Login <FaCaretDown className="ml-2" />
+                </motion.button>
+
+                {/* Dropdown Menu */}
+                <AnimatePresence>
+                  {dropdownOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      className="absolute right-0 mt-2 bg-blue-900 shadow-lg rounded-lg w-48 z-50"
                     >
-                      {item.name}
-                    </motion.li>
-                  ))}
+                      <ul className="py-2">
+                        {["Admin", "Software House", "Student"].map((role) => (
+                          <motion.li
+                            key={role}
+                            whileHover={{ scale: 1.02 }}
+                            className="px-4 py-2 hover:bg-blue-800 cursor-pointer"
+                            onClick={() => handleLoginOptionClick(role)}
+                          >
+                            {role}
+                          </motion.li>
+                        ))}
+                      </ul>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
                 </ul>
 
                 <div className="mt-6 flex flex-col space-y-4">
