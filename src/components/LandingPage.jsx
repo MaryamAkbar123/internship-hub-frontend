@@ -147,177 +147,150 @@ useEffect(() => {
       {/* Content */}
       <div className="relative z-10 text-white">
         {/* Navbar */}
-        <motion.nav 
-          initial={{ y: -100 }}
-          animate={{ y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="bg-blue-950 bg-opacity-90 p-4 shadow-lg sticky top-0 z-50"
-        >
-          <div className="container mx-auto flex justify-between items-center">
-            {/* Logo */}
-            <motion.div 
-              whileHover={{ scale: 1.05 }}
-              className="flex items-center space-x-2 cursor-pointer"
-              onClick={() => scrollToSection(homeRef)}
-            >
-              <img
-                src="src/assets/images/fyplogo1.png"
-                alt="Logo"
-                className="h-16 w-16 rounded-full object-cover border-2 border-white"
-              />
-              <span className="text-xl font-bold hidden md:block">CUI Internship Hub</span>
-            </motion.div>
-
-            {/* Mobile Menu Button */}
-            <button
-              className="md:hidden text-white z-50 "
-              onClick={toggleMobileMenu}
-            >
-              <FaBars size={24} />
-            </button>
-
-            {/* Desktop Menu */}
-            <ul className="hidden md:flex space-x-8 items-center">
-              {[
-                { name: "Home", ref: homeRef },
-                { name: "About Us", ref: aboutRef },
-                { name: "Services", ref: servicesRef },
-                { name: "Internships", ref: internshipsRef },
-                { name: "Contact Us", ref: contactRef },
-              ].map((item) => (
-                <motion.li
-                  key={item.name}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="font-semibold hover:text-blue-300 cursor-pointer transition-colors"
-                  onClick={() => scrollToSection(item.ref)}
-                >
-                  {item.name}
-                </motion.li>
-              ))}
-
-              {/* Login Button */}
-              <motion.div className="relative">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="flex items-center bg-blue-800 text-white px-4 py-2 rounded-xl hover:bg-blue-700 transition-all border-2 border-white"
-                  onClick={toggleDropdown}
-                >
-                  Login <FaCaretDown className="ml-2" />
-                </motion.button>
-
-                {/* Dropdown Menu */}
-                <AnimatePresence>
-                  {dropdownOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      className="absolute right-0 mt-2 bg-blue-900 shadow-lg rounded-lg w-48 z-50"
-                    >
-                      <ul className="py-2">
-                        {["Admin", "Software House", "Student"].map((role) => (
-                          <motion.li
-                            key={role}
-                            whileHover={{ scale: 1.02 }}
-                            className="px-4 py-2 hover:bg-blue-800 cursor-pointer"
-                            onClick={() => handleLoginOptionClick(role)}
-                          >
-                            {role}
-                          </motion.li>
-                        ))}
-                      </ul>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            </ul>
-          </div>
-
-          {/* Mobile Menu */}
-          <AnimatePresence>
-            {isMobileMenuOpen && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                className="md:hidden bg-blue-900 bg-opacity-95 absolute top-0 left-0 right-0 z-40 pt-20 pb-8 px-4"
+       <motion.nav 
+            initial={{ y: -100 }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="bg-blue-950 bg-opacity-90 p-4 shadow-lg sticky top-0 z-50"
+          >
+            <div className="container mx-auto flex justify-between items-center">
+              {/* Logo */}
+              <motion.div 
+                whileHover={{ scale: 1.05 }}
+                className="flex items-center space-x-2 cursor-pointer"
+                onClick={() => {
+                  scrollToSection(homeRef);
+                  if (isMobileMenuOpen) toggleMobileMenu(); // Close mobile menu on logo click
+                }}
               >
-                <ul className="flex flex-col space-y-4">
-                  {[
-                    { name: "Home", ref: homeRef },
-                    { name: "About Us", ref: aboutRef },
-                    { name: "Services", ref: servicesRef },
-                    { name: "Internships", ref: internshipsRef },
-                    { name: "Contact Us", ref: contactRef },
-                  ].map((item) => (
-                <motion.li
-                  key={item.name}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="font-semibold hover:text-blue-300 cursor-pointer transition-colors"
-                  onClick={() => scrollToSection(item.ref)}
-                >
-                  {item.name}
-                </motion.li>
-              ))}
-
-              {/* Login Button */}
-              <motion.div className="relative">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="flex items-center bg-blue-800 text-white px-4 py-2 rounded-xl hover:bg-blue-700 transition-all border-2 border-white"
-                  onClick={toggleDropdown}
-                >
-                  Login <FaCaretDown className="ml-2" />
-                </motion.button>
-
-                {/* Dropdown Menu */}
-                <AnimatePresence>
-                  {dropdownOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      className="absolute right-0 mt-2 bg-blue-900 shadow-lg rounded-lg w-48 z-50"
-                    >
-                      <ul className="py-2">
-                        {["Admin", "Software House", "Student"].map((role) => (
-                          <motion.li
-                            key={role}
-                            whileHover={{ scale: 1.02 }}
-                            className="px-4 py-2 hover:bg-blue-800 cursor-pointer"
-                            onClick={() => handleLoginOptionClick(role)}
-                          >
-                            {role}
-                          </motion.li>
-                        ))}
-                      </ul>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                <img
+                  src="src/assets/images/fyplogo1.png"
+                  alt="Logo"
+                  className="h-16 w-16 rounded-full object-cover border-2 border-white"
+                />
+                <span className="text-xl font-bold hidden md:block">CUI Internship Hub</span>
               </motion.div>
-                </ul>
 
-                <div className="mt-6 flex flex-col space-y-4">
-                  {["Admin", "Software House", "Student"].map((role) => (
-                    <motion.button
-                      key={role}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="bg-blue-800 text-white px-4 py-2 rounded-lg"
-                      onClick={() => handleLoginOptionClick(role)}
-                    >
-                      Login as {role}
-                    </motion.button>
-                  ))}
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </motion.nav>
+              {/* Mobile Menu Button */}
+              <button
+                className="md:hidden text-white z-50"
+                onClick={toggleMobileMenu}
+              >
+                <FaBars size={24} />
+              </button>
+
+              {/* Desktop Menu */}
+              <ul className="hidden md:flex space-x-8 items-center">
+                {[
+                  { name: "Home", ref: homeRef },
+                  { name: "About Us", ref: aboutRef },
+                  { name: "Services", ref: servicesRef },
+                  { name: "Internships", ref: internshipsRef },
+                  { name: "Contact Us", ref: contactRef },
+                ].map((item) => (
+                  <motion.li
+                    key={item.name}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="font-semibold hover:text-blue-300 cursor-pointer transition-colors"
+                    onClick={() => scrollToSection(item.ref)}
+                  >
+                    {item.name}
+                  </motion.li>
+                ))}
+
+                {/* Login Button */}
+                <motion.div className="relative">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex items-center bg-blue-800 text-white px-4 py-2 rounded-xl hover:bg-blue-700 transition-all border-2 border-white"
+                    onClick={toggleDropdown}
+                  >
+                    Login <FaCaretDown className="ml-2" />
+                  </motion.button>
+
+                  {/* Dropdown Menu */}
+                  <AnimatePresence>
+                    {dropdownOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        className="absolute right-0 mt-2 bg-blue-900 shadow-lg rounded-lg w-48 z-50"
+                      >
+                        <ul className="py-2">
+                          {["Admin", "Software House", "Student"].map((role) => (
+                            <motion.li
+                              key={role}
+                              whileHover={{ scale: 1.02 }}
+                              className="px-4 py-2 hover:bg-blue-800 cursor-pointer"
+                              onClick={() => handleLoginOptionClick(role)}
+                            >
+                              {role}
+                            </motion.li>
+                          ))}
+                        </ul>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              </ul>
+            </div>
+
+            {/* Mobile Menu */}
+            <AnimatePresence>
+              {isMobileMenuOpen && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="md:hidden bg-blue-900 bg-opacity-95 absolute top-0 left-0 right-0 z-40 pt-20 pb-8 px-4"
+                >
+                  <ul className="flex flex-col space-y-4">
+                    {[
+                      { name: "Home", ref: homeRef },
+                      { name: "About Us", ref: aboutRef },
+                      { name: "Services", ref: servicesRef },
+                      { name: "Internships", ref: internshipsRef },
+                      { name: "Contact Us", ref: contactRef },
+                    ].map((item) => (
+                      <motion.li
+                        key={item.name}
+                        initial={{ x: -20, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        transition={{ duration: 0.3 }}
+                        className="font-semibold text-lg border-b border-blue-700 pb-2 hover:text-blue-300 cursor-pointer"
+                        onClick={() => {
+                          scrollToSection(item.ref); // Scroll to section
+                          toggleMobileMenu(); // Close mobile menu
+                        }}
+                      >
+                        {item.name}
+                      </motion.li>
+                    ))}
+                  </ul>
+
+                  <div className="mt-6 flex flex-col space-y-4">
+                    {["Admin", "Software House", "Student"].map((role) => (
+                      <motion.button
+                        key={role}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="bg-blue-800 text-white px-4 py-2 rounded-lg"
+                        onClick={() => {
+                          handleLoginOptionClick(role); // Handle login
+                          toggleMobileMenu(); // Close mobile menu
+                        }}
+                      >
+                        Login as {role}
+                      </motion.button>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.nav>
 
         {/* Hero Section */}
         <section
