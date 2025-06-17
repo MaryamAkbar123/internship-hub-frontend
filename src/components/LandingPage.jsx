@@ -11,6 +11,10 @@ import "../assets/css/landing.css";
 import myImage from "../assets/images/fypbg.jpg";
 import fyplogo from "../assets/images/fyplogo1.png";
 import Aboutus from "../assets/images/aboutusimg.jpg";
+import facebook from "../assets/images/facebook.png";
+import twitter from "../assets/images/twitter.png";
+import linkendIn from "../assets/images/linkedin.png";
+import whatsapp from "../assets/images/whatsapp.png";
 
 
 
@@ -566,11 +570,11 @@ useEffect(() => {
                             className={`absolute inset-0 flex flex-col md:flex-row ${index === activeInternship ? 'block' : 'hidden'}`}
                           >
                             <div className="md:w-1/2 h-64 md:h-full">
-                              <img
-                                src={`src/assets/images/${internship?.image || 'p1.jpeg'}`}
-                                alt={internship.title}
-                                className="w-full h-full object-cover"
-                              />
+                             <img
+  src={require(`../assets/images/${internship?.image || 'p1.jpeg'}`)}
+  alt="Internship"
+/>
+
                             </div>
                             <div className="md:w-1/2 p-6 flex flex-col justify-center">
                               <h3 className="text-2xl font-bold text-blue-900 mb-2">{internship.title}</h3>
@@ -822,10 +826,10 @@ useEffect(() => {
                   <h4 className="text-lg font-bold text-blue-900 mb-4 animate-fade-in">Follow Us</h4>
                   <div className="flex space-x-4">
                     {[
-                      { name: 'Facebook', icon: 'facebook', url: 'https://facebook.com' },
-                      { name: 'Twitter', icon: 'twitter', url: 'https://twitter.com' },
-                      { name: 'LinkedIn', icon: 'linkedin', url: 'https://linkedin.com' },
-                      { name: 'Whatsapp', icon: 'whatsapp', url: 'https://whatsapp.com' },
+                      { name: 'Facebook', icon: 'facebook', url: {facebook} },
+                      { name: 'Twitter', icon: 'twitter', url: {twitter} },
+                      { name: 'LinkedIn', icon: 'linkedin', url: {linkendIn} },
+                      { name: 'Whatsapp', icon: 'whatsapp', url: {whatsapp}},
                     ].map((social, index) => (
                       <motion.a
                         key={social.name}
@@ -861,7 +865,7 @@ useEffect(() => {
               <div>
                 <div className="flex items-center space-x-2 mb-4">
                   <img 
-                    src="src/assets/images/fyplogo1.png" 
+                    src={fyplogo} 
                     alt="Logo" 
                     className="h-12 w-12 rounded-full border-2 border-white"
                   />
