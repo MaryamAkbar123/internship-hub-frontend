@@ -576,7 +576,7 @@ useEffect(() => {
                                 className="w-full h-full object-cover"
                               />
                             </div>
-                            
+
                             <div className="md:w-1/2 p-6 flex flex-col justify-center">
                               <h3 className="text-2xl font-bold text-blue-900 mb-2">{internship.title}</h3>
                               <p className="text-gray-600 mb-4">{internship.description}</p>
@@ -825,33 +825,34 @@ useEffect(() => {
                   
                         <div className="mt-12">
                   <h4 className="text-lg font-bold text-blue-900 mb-4 animate-fade-in">Follow Us</h4>
-                  <div className="flex space-x-4">
-                    {[
-                      { name: 'Facebook', icon: 'facebook', url: {facebook} },
-                      { name: 'Twitter', icon: 'twitter', url: {twitter} },
-                      { name: 'LinkedIn', icon: 'linkedin', url: {linkendIn} },
-                      { name: 'Whatsapp', icon: 'whatsapp', url: {whatsapp}},
-                    ].map((social, index) => (
-                      <motion.a
-                        key={social.name}
-                        href={social.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`Follow us on ${social.name}`}
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0, transition: { delay: index * 0.1, duration: 0.5 } }}
-                        whileHover={{ y: -5, scale: 1.1, transition: { type: 'spring', stiffness: 300 } }}
-                        whileTap={{ scale: 0.95 }}
-                        className="bg-gradient-to-r from-blue-800 to-blue-950 hover:bg-gradient-to-r hover:from-blue-700 hover:to-blue-900 p-2.5 rounded-full shadow-md hover:shadow-lg hover:ring-2 hover:ring-blue-500/50 transition-all duration-300 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      >
-                        <img
-                          src={`src/assets/images/${social.icon}.png`}
-                          alt={social.name}
-                          className="w-7 h-7 object-contain"
-                        />
-                      </motion.a>
-                    ))}
-                  </div>
+            <div className="flex space-x-4">
+                {[
+                  { name: 'Facebook', icon: 'facebook', url: facebook },
+                  { name: 'Twitter', icon: 'twitter', url: twitter },
+                  { name: 'LinkedIn', icon: 'linkedin', url: linkendIn },
+                  { name: 'Whatsapp', icon: 'whatsapp', url: whatsapp },
+                ].map((social, index) => (
+                  <motion.a
+                    key={social.name}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Follow us on ${social.name}`}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0, transition: { delay: index * 0.1, duration: 0.5 } }}
+                    whileHover={{ y: -5, scale: 1.1, transition: { type: 'spring', stiffness: 300 } }}
+                    whileTap={{ scale: 0.95 }}
+                    className="bg-gradient-to-r from-blue-800 to-blue-950 hover:bg-gradient-to-r hover:from-blue-700 hover:to-blue-900 p-2.5 rounded-full shadow-md hover:shadow-lg hover:ring-2 hover:ring-blue-500/50 transition-all duration-300 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                    <img
+                      src={`/assets/images/${social.icon}.png`}
+                      alt={social.name}
+                      className="w-7 h-7 object-contain"
+                    />
+                  </motion.a>
+                ))}
+              </div>
+
                 </div>
                 </div>
               </motion.div>
