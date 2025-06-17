@@ -570,11 +570,11 @@ useEffect(() => {
                             className={`absolute inset-0 flex flex-col md:flex-row ${index === activeInternship ? 'block' : 'hidden'}`}
                           >
                             <div className="md:w-1/2 h-64 md:h-full">
-                             <img
-  src={require(`../assets/images/${internship?.image || 'p1.jpeg'}`)}
-  alt="Internship"
-/>
-
+                              <img
+                                src={`src/assets/images/${internship?.image || 'p1.jpeg'}`}
+                                alt={internship.title}
+                                className="w-full h-full object-cover"
+                              />
                             </div>
                             <div className="md:w-1/2 p-6 flex flex-col justify-center">
                               <h3 className="text-2xl font-bold text-blue-900 mb-2">{internship.title}</h3>
