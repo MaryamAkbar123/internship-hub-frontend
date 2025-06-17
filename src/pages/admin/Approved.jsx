@@ -16,7 +16,7 @@
 
 //     const fetchData = async() => {
 //         try {
-//             const response = await axios.get('http://localhost:5000/api/users/active')
+//             const response = await axios.get('https://internship-hub-backend.vercel.app/api/users/active')
 //             setResult(response.data)
 //         } catch (error) {
 //             console.error('Error fetching data:', error)
@@ -73,9 +73,9 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/applications");
-        const res2 = await axios.get("http://localhost:5000/api/softwarehouses");
-        const res3 = await axios.get(`http://localhost:5000/api/users/${role}`);
+        const response = await axios.get("https://internship-hub-backend.vercel.app/api/applications");
+        const res2 = await axios.get("https://internship-hub-backend.vercel.app/api/softwarehouses");
+        const res3 = await axios.get(`https://internship-hub-backend.vercel.app/api/users/${role}`);
 
         setSoftCount(res2.data.length);
         setStdCount(res3.data.length);

@@ -15,7 +15,7 @@ const StudentChat = () => {
     const std = JSON.parse(localStorage.getItem('studentData'));
     if (std) {
       setCurrentUserId(std._id);
-      const newSocket = io('http://localhost:5000');
+      const newSocket = io('https://internship-hub-backend.vercel.app');
       newSocket.emit('join', std._id);
       setSocket(newSocket);
       return () => newSocket.close();
@@ -23,7 +23,7 @@ const StudentChat = () => {
   }, []);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/softwarehouses')
+    axios.get('https://internship-hub-backend.vercel.app/api/softwarehouses')
       .then(res => {
         const dynamicUsers = res.data.map(user => ({
           id: user._id,
@@ -43,7 +43,7 @@ const StudentChat = () => {
 
   useEffect(() => {
     if (receiverId) {
-      axios.get(`http://localhost:5000/api/softwarehouses/${receiverId}`)
+      axios.get(`https://internship-hub-backend.vercel.app/api/softwarehouses/${receiverId}`)
         .then(res => setReceiverProfile(res.data));
     }
   }, [receiverId]);
@@ -54,7 +54,7 @@ const StudentChat = () => {
     socket.emit('sendMessage', msgObj);
     setMessages(prev => [...prev, msgObj]);
     setMessage('');
-    await axios.post('http://localhost:5000/api/chat', msgObj);
+    await axios.post('https://internship-hub-backend.vercel.app/api/chat', msgObj);
   };
 
   return (

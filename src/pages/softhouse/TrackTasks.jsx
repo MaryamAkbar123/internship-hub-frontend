@@ -9,7 +9,7 @@
 //   const fetchTasks = async () => {
 //     try {
 //       const response = await axios.get(
-//         `http://localhost:5000/api/tasks/${companyId}`
+//         `https://internship-hub-backend.vercel.app/api/tasks/${companyId}`
 //       );
 //       setTasks(response.data);
 //       console.log(response.data);
@@ -21,7 +21,7 @@
 //   const updateTaskStatus = async (taskId, status) => {
 //     try {
 //       const response = await axios.patch(
-//         `http://localhost:5000/api/tasks/tasks/${taskId}`,
+//         `https://internship-hub-backend.vercel.app/api/tasks/tasks/${taskId}`,
 //         { status }
 //       );
 //       setTasks((prevTasks) =>
@@ -35,7 +35,7 @@
 //   };
 //   const handleDownload = (path) => {
 //     const link = document.createElement("a");
-//     link.href = `http://localhost:5000/${path}`; // URL to the file
+//     link.href = `https://internship-hub-backend.vercel.app/${path}`; // URL to the file
 //     link.setAttribute("download", "task-file.pdf"); // Set the filename to download
 //     document.body.appendChild(link);
 //     link.click(); // Trigger the download
@@ -129,7 +129,7 @@ const TrackTask = () => {
   const fetchTasks = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/tasks/${companyId}`,
+        `https://internship-hub-backend.vercel.app/api/tasks/${companyId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -146,7 +146,7 @@ const TrackTask = () => {
   const updateTaskStatus = async (taskId, status) => {
     try {
       const response = await axios.patch(
-        `http://localhost:5000/api/tasks/tasks/${taskId}`,
+        `https://internship-hub-backend.vercel.app/api/tasks/tasks/${taskId}`,
         { status },
         {
           headers: {
@@ -166,7 +166,7 @@ const TrackTask = () => {
 
   const handleDownload = (path) => {
     const link = document.createElement("a");
-    link.href = `http://localhost:5000/${path}`; // URL to the file
+    link.href = `https://internship-hub-backend.vercel.app/${path}`; // URL to the file
     link.setAttribute("download", "task-file.pdf"); // Set the filename to download
     document.body.appendChild(link);
     link.click(); // Trigger the download

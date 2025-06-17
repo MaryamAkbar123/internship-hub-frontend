@@ -20,7 +20,7 @@ const ResetPassword = ({ onClose }) => {
 
     try {
       const response = await axios.post(
-        `http://localhost:5000/api/users/resetpassword/${token}`,
+        `https://internship-hub-backend.vercel.app/api/users/resetpassword/${token}`,
         {
           newPassword: resetPassword,
         }

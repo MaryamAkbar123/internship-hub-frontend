@@ -31,7 +31,7 @@
 //     const fetchUser = async() =>{
 //         if(!token) return;
 //         try {
-//             const response =  await fetch('http://localhost:5000/api/auth/me',{
+//             const response =  await fetch('https://internship-hub-backend.vercel.app/api/auth/me',{
 //                 headers: { Authorizaztion: `Bearer ${token}` },
 //             });
 //             const data =  await response.json();
@@ -88,7 +88,7 @@ export const AuthProvider = ({ children }) => {
   const fetchUser = async () => {
     if (!token) return;
     try {
-      const response = await fetch('http://localhost:5000/api/auth/me', {
+      const response = await fetch('https://internship-hub-backend.vercel.app/api/auth/me', {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (!response.ok) throw new Error('Invalid token');

@@ -35,7 +35,7 @@ import StudentLayout from "./layouts/StudentLayout";
 import StdDashboard from "./pages/student/StdDashboard";
 import Internships from "./pages/student/Internships";
 import StdAssignTask from "./pages/student/AssignTask";
-import StudentProfile from "./pages/student/studentprofile";
+import StudentProfile from "./pages/student/StudentProfile";
 import EnrolledInternships from "./pages/student/enrolled-internships";
 import AppliedInternships from "./pages/student/applied-internships";
 import Logout from "./pages/Logout";

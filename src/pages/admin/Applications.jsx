@@ -66,7 +66,7 @@
 //     const fetchData = async () => {
 //         try {
 //             setLoading(true);
-//             const response = await axios.get(`http://localhost:5000/api/softwarehouses/byid/${status}`);
+//             const response = await axios.get(`https://internship-hub-backend.vercel.app/api/softwarehouses/byid/${status}`);
 //             setData(response.data);
 //         } catch (error) {
 //             console.error('Error fetching data', error);
@@ -79,7 +79,7 @@
 //         try {
 //             setLoading(true);
 //             const newStatus = currentStatus === 1 ? 0 : 1;
-//             await axios.put(`http://localhost:5000/api/softwarehouses/status/${id}`, { status: newStatus });
+//             await axios.put(`https://internship-hub-backend.vercel.app/api/softwarehouses/status/${id}`, { status: newStatus });
 //             setData((prevData) =>
 //                 prevData.map((item) =>
 //                     item._id === id ? { ...item, status: newStatus } : item
@@ -95,7 +95,7 @@
 //     const handleDelete = async (id) => {
 //         try {
 //             setLoading(true);
-//             await axios.delete(`http://localhost:5000/api/softwarehouses/${id}`);
+//             await axios.delete(`https://internship-hub-backend.vercel.app/api/softwarehouses/${id}`);
 //             setData((prevData) => prevData.filter((item) => item._id !== id));
 //             alert('Software house rejected and deleted successfully');
 //         } catch (error) {
@@ -110,7 +110,7 @@
 //         try {
 //             setLoading(true);
 //             const response = await axios.get(
-//                 `http://localhost:5000/api/softwarehouses/${item._id}`
+//                 `https://internship-hub-backend.vercel.app/api/softwarehouses/${item._id}`
 //             );
 //             setSoftViewData(response.data);
 //             setShowViewModal(true);
@@ -333,7 +333,7 @@ const Applications = () => {
     const fetchData = async () => {
         try {
             setLoading(true);
-            const response = await axios.get(`http://localhost:5000/api/softwarehouses/byid/${status}`);
+            const response = await axios.get(`https://internship-hub-backend.vercel.app/api/softwarehouses/byid/${status}`);
             setData(response.data);
         } catch (error) {
             console.error('Error fetching data', error);
@@ -346,7 +346,7 @@ const Applications = () => {
         try {
             setLoading(true);
             const newStatus = currentStatus === 1 ? 0 : 1;
-            await axios.put(`http://localhost:5000/api/softwarehouses/status/${id}`, { status: newStatus });
+            await axios.put(`https://internship-hub-backend.vercel.app/api/softwarehouses/status/${id}`, { status: newStatus });
             setData((prevData) =>
                 prevData.map((item) =>
                     item._id === id ? { ...item, status: newStatus } : item
@@ -362,7 +362,7 @@ const Applications = () => {
     const handleDelete = async (id) => {
         try {
             setLoading(true);
-            await axios.delete(`http://localhost:5000/api/softwarehouses/${id}`);
+            await axios.delete(`https://internship-hub-backend.vercel.app/api/softwarehouses/${id}`);
             setData((prevData) => prevData.filter((item) => item._id !== id));
             alert('Software house rejected and deleted successfully');
         } catch (error) {
@@ -377,7 +377,7 @@ const Applications = () => {
         try {
             setLoading(true);
             const response = await axios.get(
-                `http://localhost:5000/api/softwarehouses/${item._id}`
+                `https://internship-hub-backend.vercel.app/api/softwarehouses/${item._id}`
             );
             setSoftViewData(response.data);
             setShowViewModal(true);

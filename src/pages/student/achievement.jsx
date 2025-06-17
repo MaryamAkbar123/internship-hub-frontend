@@ -10,7 +10,7 @@
 //     const fetchAchievements = async () => {
 //         try {
 //             // Replace with the correct endpoint to fetch remarks (software house feedback)
-//             const response = await axios.get(`http://localhost:5000/api/remarks/student/${studentId}`);
+//             const response = await axios.get(`https://internship-hub-backend.vercel.app/api/remarks/student/${studentId}`);
 //             console.log(Array.isArray(achievements)); // should log true
 //     console.log(achievements); // log to inspect the value
 
@@ -103,7 +103,7 @@ const Achievements = () => {
     const fetchAchievements = async () => {
         try {
             // Replace with the correct endpoint to fetch remarks (software house feedback)
-            const response = await axios.get(`http://localhost:5000/api/remarks/student/${studentId}`);
+            const response = await axios.get(`https://internship-hub-backend.vercel.app/api/remarks/student/${studentId}`);
             console.log(Array.isArray(achievements)); // should log true
     console.log(achievements); // log to inspect the value
 

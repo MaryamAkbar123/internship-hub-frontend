@@ -57,7 +57,7 @@ const StudentLogin = () => {
         if (!validateForm()) return;
 
         try {
-            const response = await axios.post("http://localhost:5000/api/auth/login", {
+            const response = await axios.post("https://internship-hub-backend.vercel.app/api/auth/login", {
                 email, password, role: "student"
             });
             login(response.data.token);

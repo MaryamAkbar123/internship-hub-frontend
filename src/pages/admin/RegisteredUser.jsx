@@ -109,7 +109,7 @@
 //     if (viewData.profileImage) {
 //       try {
 //         const img = new Image();
-//         img.src = `http://localhost:5000/${viewData.profileImage}`;
+//         img.src = `https://internship-hub-backend.vercel.app/${viewData.profileImage}`;
 //         doc.addImage(img, 'JPEG', 80, 70, 50, 50);
 //       } catch (e) {
 //         console.log('Error adding profile image to PDF:', e);
@@ -219,7 +219,7 @@
 
 //   const fetchData = async () => {
 //     try {
-//       const response = await axios.get(`http://localhost:5000/api/users/${formData.role}`);
+//       const response = await axios.get(`https://internship-hub-backend.vercel.app/api/users/${formData.role}`);
 //       setData(response.data);
 //     } catch (error) {
 //       console.error("Error fetching data:", error);
@@ -229,7 +229,7 @@
 //   const toggleStatus = async (id, currentStatus) => {
 //     try {
 //       const Status = currentStatus === 1 ? 0 : 1;
-//       await axios.put(`http://localhost:5000/api/users/status/${id}`, { status: Status });
+//       await axios.put(`https://internship-hub-backend.vercel.app/api/users/status/${id}`, { status: Status });
 //       setData(prevData => prevData.map(item => 
 //         item._id === id ? { ...item, status: Status } : item
 //       ));
@@ -244,7 +244,7 @@
 
 //   const handleDelete = async (id) => {
 //     try {
-//       await axios.delete(`http://localhost:5000/api/users/${id}`);
+//       await axios.delete(`https://internship-hub-backend.vercel.app/api/users/${id}`);
 //       setData(prevData => prevData.filter(item => item._id !== id));
 //       alert("User deleted successfully");
 //     } catch (error) {
@@ -259,9 +259,9 @@
       
 //       // Fetch all data in parallel
 //       const [userResponse, profileResponse, stdres] = await Promise.all([
-//         axios.get(`http://localhost:5000/api/users/${id}`),
-//         axios.get(`http://localhost:5000/api/profiles/${id}`),
-//         axios.get(`http://localhost:5000/api/profiles/student/${id}`)
+//         axios.get(`https://internship-hub-backend.vercel.app/api/users/${id}`),
+//         axios.get(`https://internship-hub-backend.vercel.app/api/profiles/${id}`),
+//         axios.get(`https://internship-hub-backend.vercel.app/api/profiles/student/${id}`)
 //       ]);
       
 //       // Combine the data
@@ -409,7 +409,7 @@
 //                   <div className="relative mb-4">
 //                     <img
 //                       src={viewData.profileImage ? 
-//                         `http://localhost:5000/${viewData.profileImage}` : 
+//                         `https://internship-hub-backend.vercel.app/${viewData.profileImage}` : 
 //                         'https://placehold.co/150x150'}
 //                       alt="Profile"
 //                       className="w-28 h-28 rounded-full border-4 border-blue-100 object-cover"
@@ -703,7 +703,7 @@ const RegisteredUsers = () => {
     if (viewData.profileImage) {
       try {
         const img = new Image();
-        img.src = `http://localhost:5000/${viewData.profileImage}`;
+        img.src = `https://internship-hub-backend.vercel.app/${viewData.profileImage}`;
         doc.addImage(img, 'JPEG', 80, 70, 50, 50);
       } catch (e) {
         console.log('Error adding profile image to PDF:', e);
@@ -784,7 +784,7 @@ const RegisteredUsers = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/users/${formData.role}`);
+      const response = await axios.get(`https://internship-hub-backend.vercel.app/api/users/${formData.role}`);
       setData(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -794,7 +794,7 @@ const RegisteredUsers = () => {
   const toggleStatus = async (id, currentStatus) => {
     try {
       const Status = currentStatus === 1 ? 0 : 1;
-      await axios.put(`http://localhost:5000/api/users/status/${id}`, { status: Status });
+      await axios.put(`https://internship-hub-backend.vercel.app/api/users/status/${id}`, { status: Status });
       setData(prevData => prevData.map(item => 
         item._id === id ? { ...item, status: Status } : item
       ));
@@ -809,7 +809,7 @@ const RegisteredUsers = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/users/${id}`);
+      await axios.delete(`https://internship-hub-backend.vercel.app/api/users/${id}`);
       setData(prevData => prevData.filter(item => item._id !== id));
       alert("User deleted successfully");
     } catch (error) {
@@ -822,9 +822,9 @@ const RegisteredUsers = () => {
     try {
       setLoadingProfile(true);
       const [userResponse, profileResponse, stdres] = await Promise.all([
-        axios.get(`http://localhost:5000/api/users/${id}`),
-        axios.get(`http://localhost:5000/api/profiles/${id}`),
-        axios.get(`http://localhost:5000/api/profiles/student/${id}`)
+        axios.get(`https://internship-hub-backend.vercel.app/api/users/${id}`),
+        axios.get(`https://internship-hub-backend.vercel.app/api/profiles/${id}`),
+        axios.get(`https://internship-hub-backend.vercel.app/api/profiles/student/${id}`)
       ]);
       const combinedData = {
         ...userResponse.data,
@@ -978,7 +978,7 @@ const RegisteredUsers = () => {
                   <div className="relative mb-4">
                     <img
                       src={viewData.profileImage ? 
-                        `http://localhost:5000/${viewData.profileImage}` : 
+                        `https://internship-hub-backend.vercel.app/${viewData.profileImage}` : 
                         'https://placehold.co/150x150'}
                       alt="Profile"
                       className="w-28 h-28 rounded-full border-4 border-blue-100 object-cover"

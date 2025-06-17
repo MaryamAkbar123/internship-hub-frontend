@@ -70,7 +70,7 @@
 //     try {
 //       setLoading(true);
 //       const response = await axios.get(
-//         `http://localhost:5000/api/softwarehouses/byid/${statusFilter}`
+//         `https://internship-hub-backend.vercel.app/api/softwarehouses/byid/${statusFilter}`
 //       );
 //       setData(response.data);
 //     } catch (error) {
@@ -117,7 +117,7 @@
 
 //       if (editId) {
 //         await axios.put(
-//           `http://localhost:5000/api/softwarehouses/${editId}`,
+//           `https://internship-hub-backend.vercel.app/api/softwarehouses/${editId}`,
 //           formDataToSend,
 //           {
 //             headers: {
@@ -128,7 +128,7 @@
 //         fetchData(); // Refresh data after update
 //       } else {
 //         await axios.post(
-//           "http://localhost:5000/api/softwarehouses",
+//           "https://internship-hub-backend.vercel.app/api/softwarehouses",
 //           formDataToSend,
 //           {
 //             headers: {
@@ -157,7 +157,7 @@
 //   //     status: item.status,
 //   //     profileImage: null,
 //   //     profileImagePreview: item.profileImage ? 
-//   //       `http://localhost:5000/${item.profileImage}` : ""
+//   //       `https://internship-hub-backend.vercel.app/${item.profileImage}` : ""
 //   //   });
 //   //   setEditId(item._id);
 //   //   setModalTitle("Edit Software House");
@@ -168,7 +168,7 @@
 //     if (window.confirm("Are you sure you want to delete this software house?")) {
 //       try {
 //         setLoading(true);
-//         await axios.delete(`http://localhost:5000/api/softwarehouses/${id}`);
+//         await axios.delete(`https://internship-hub-backend.vercel.app/api/softwarehouses/${id}`);
 //         fetchData(); // Refresh data after delete
 //       } catch (err) {
 //         console.error("Error deleting softwarehouse:", err);
@@ -184,7 +184,7 @@
 //       setLoading(true);
 //       const newStatus = currentStatus === 1 ? 0 : 1;
 //       await axios.put(
-//         `http://localhost:5000/api/softwarehouses/status/${id}`,
+//         `https://internship-hub-backend.vercel.app/api/softwarehouses/status/${id}`,
 //         { status: newStatus }
 //       );
 //       fetchData(); // Refresh data after status change
@@ -199,7 +199,7 @@
 //     try {
 //       setLoading(true);
 //       const response = await axios.get(
-//         `http://localhost:5000/api/softwarehouses/${item._id}`
+//         `https://internship-hub-backend.vercel.app/api/softwarehouses/${item._id}`
 //       );
 //       setSoftViewData(response.data);
 //       setShowViewModal(true);
@@ -362,7 +362,7 @@
 //                 <img
 //                   src={formData.profileImagePreview || 
 //                     (formData.profileImage ? 
-//                       `http://localhost:5000/${formData.profileImage}` : 
+//                       `https://internship-hub-backend.vercel.app/${formData.profileImage}` : 
 //                       'https://placehold.co/150x150')}
 //                   alt="Company Logo"
 //                   className="rounded-circle"
@@ -544,7 +544,7 @@ const SoftwareHouses = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `http://localhost:5000/api/softwarehouses/byid/${statusFilter}`
+        `https://internship-hub-backend.vercel.app/api/softwarehouses/byid/${statusFilter}`
       );
       setData(response.data);
     } catch (error) {
@@ -590,7 +590,7 @@ const SoftwareHouses = () => {
 
       if (editId) {
         await axios.put(
-          `http://localhost:5000/api/softwarehouses/${editId}`,
+          `https://internship-hub-backend.vercel.app/api/softwarehouses/${editId}`,
           formDataToSend,
           {
             headers: {
@@ -601,7 +601,7 @@ const SoftwareHouses = () => {
         fetchData();
       } else {
         await axios.post(
-          "http://localhost:5000/api/softwarehouses",
+          "https://internship-hub-backend.vercel.app/api/softwarehouses",
           formDataToSend,
           {
             headers: {
@@ -624,7 +624,7 @@ const SoftwareHouses = () => {
     if (window.confirm("Are you sure you want to delete this software house?")) {
       try {
         setLoading(true);
-        await axios.delete(`http://localhost:5000/api/softwarehouses/${id}`);
+        await axios.delete(`https://internship-hub-backend.vercel.app/api/softwarehouses/${id}`);
         fetchData();
       } catch (err) {
         console.error("Error deleting softwarehouse:", err);
@@ -640,7 +640,7 @@ const SoftwareHouses = () => {
       setLoading(true);
       const newStatus = currentStatus === 1 ? 0 : 1;
       await axios.put(
-        `http://localhost:5000/api/softwarehouses/status/${id}`,
+        `https://internship-hub-backend.vercel.app/api/softwarehouses/status/${id}`,
         { status: newStatus }
       );
       fetchData();
@@ -655,7 +655,7 @@ const SoftwareHouses = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `http://localhost:5000/api/softwarehouses/${item._id}`
+        `https://internship-hub-backend.vercel.app/api/softwarehouses/${item._id}`
       );
       setSoftViewData(response.data);
       setShowViewModal(true);

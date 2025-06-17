@@ -46,7 +46,7 @@
 
 //     const fetchTasks = async () => {
 //         try {
-//             const response = await axios.get(`http://localhost:5000/api/tasks/${companyId}`);
+//             const response = await axios.get(`https://internship-hub-backend.vercel.app/api/tasks/${companyId}`);
 //             setTasks(response.data);
 //         } catch (error) {
 //             console.error('Failed to fetch tasks:', error);
@@ -55,7 +55,7 @@
 
 //     const fetchApplicants = async () => {
 //         try {
-//             const response = await axios.get(`http://localhost:5000/api/applications/${companyId}`);
+//             const response = await axios.get(`https://internship-hub-backend.vercel.app/api/applications/${companyId}`);
 //             setApplicants(response.data);
 //         } catch (error) {
 //             console.error('Failed to fetch applicants:', error);
@@ -121,14 +121,14 @@
 
 //         try {
 //             if (editId) {
-//                 await axios.put(`http://localhost:5000/api/tasks/${editId}`, formData);
+//                 await axios.put(`https://internship-hub-backend.vercel.app/api/tasks/${editId}`, formData);
 //                 setTasks((prevData) =>
 //                     prevData.map((item) =>
 //                         item._id === editId ? { ...item, ...formData } : item
 //                     )
 //                 );
 //             } else {
-//                 const response = await axios.post('http://localhost:5000/api/tasks', formData);
+//                 const response = await axios.post('https://internship-hub-backend.vercel.app/api/tasks', formData);
 //                 setTasks((prevData) => [...prevData, response.data]);
 //             }
 //             setShowModal(false);
@@ -156,7 +156,7 @@
 //     const handleDelete = async (id) => {
 //         if (window.confirm('Are you sure you want to delete this task?')) {
 //             try {
-//                 await axios.delete(`http://localhost:5000/api/tasks/${id}`);
+//                 await axios.delete(`https://internship-hub-backend.vercel.app/api/tasks/${id}`);
 //                 setTasks((prevData) => prevData.filter((item) => item._id !== id));
 //                 alert('Task deleted successfully');
 //             } catch (error) {
@@ -353,7 +353,7 @@ const AssignTask = () => {
   const fetchTasks = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(`http://localhost:5000/api/tasks/${companyId}`);
+      const response = await axios.get(`https://internship-hub-backend.vercel.app/api/tasks/${companyId}`);
       setTasks(response.data);
     } catch (error) {
       console.error('Failed to fetch tasks:', error);
@@ -365,7 +365,7 @@ const AssignTask = () => {
   const fetchApplicants = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(`http://localhost:5000/api/applications/${companyId}`);
+      const response = await axios.get(`https://internship-hub-backend.vercel.app/api/applications/${companyId}`);
       setApplicants(response.data);
     } catch (error) {
       console.error('Failed to fetch applicants:', error);
@@ -429,14 +429,14 @@ const AssignTask = () => {
     try {
       setLoading(true);
       if (editId) {
-        await axios.put(`http://localhost:5000/api/tasks/${editId}`, formData);
+        await axios.put(`https://internship-hub-backend.vercel.app/api/tasks/${editId}`, formData);
         setTasks((prevData) =>
           prevData.map((item) =>
             item._id === editId ? { ...item, ...formData } : item
           )
         );
       } else {
-        const response = await axios.post('http://localhost:5000/api/tasks', formData);
+        const response = await axios.post('https://internship-hub-backend.vercel.app/api/tasks', formData);
         setTasks((prevData) => [...prevData, response.data]);
       }
       setShowModal(false);
@@ -467,7 +467,7 @@ const AssignTask = () => {
     if (window.confirm('Are you sure you want to delete this task?')) {
       try {
         setLoading(true);
-        await axios.delete(`http://localhost:5000/api/tasks/${id}`);
+        await axios.delete(`https://internship-hub-backend.vercel.app/api/tasks/${id}`);
         setTasks((prevData) => prevData.filter((item) => item._id !== id));
         alert('Task deleted successfully');
       } catch (error) {

@@ -20,8 +20,8 @@
 //     const fetchData = async () => {
 //         try {
 //             const [reportResponse, achievementsResponse] = await Promise.all([
-//                 axios.get(`http://localhost:5000/api/applications/report/${id}`),
-//                 axios.get(`http://localhost:5000/api/remarks/student/${id}`)
+//                 axios.get(`https://internship-hub-backend.vercel.app/api/applications/report/${id}`),
+//                 axios.get(`https://internship-hub-backend.vercel.app/api/remarks/student/${id}`)
 //             ]);
 //             setReportData(reportResponse.data);
 //             setAchievements(Array.isArray(achievementsResponse.data) ? achievementsResponse.data : []);
@@ -353,11 +353,11 @@ const Report = () => {
     const fetchData = async () => {
         try {
             const [reportResponse, achievementsResponse, userResponse, profileResponse, studentProfileResponse] = await Promise.all([
-                axios.get(`http://localhost:5000/api/applications/report/${id}`),
-                axios.get(`http://localhost:5000/api/remarks/student/${id}`),
-                axios.get(`http://localhost:5000/api/users/${id}`),
-                axios.get(`http://localhost:5000/api/profiles/${id}`),
-                axios.get(`http://localhost:5000/api/profiles/student/${id}`)
+                axios.get(`https://internship-hub-backend.vercel.app/api/applications/report/${id}`),
+                axios.get(`https://internship-hub-backend.vercel.app/api/remarks/student/${id}`),
+                axios.get(`https://internship-hub-backend.vercel.app/api/users/${id}`),
+                axios.get(`https://internship-hub-backend.vercel.app/api/profiles/${id}`),
+                axios.get(`https://internship-hub-backend.vercel.app/api/profiles/student/${id}`)
             ]);
             setReportData(reportResponse.data);
             setAchievements(Array.isArray(achievementsResponse.data) ? achievementsResponse.data : []);
@@ -400,7 +400,7 @@ const Report = () => {
         if (profileData?.profileImage) {
             try {
                 const img = new Image();
-                img.src = `http://localhost:5000/${profileData.profileImage}`;
+                img.src = `https://internship-hub-backend.vercel.app/${profileData.profileImage}`;
                 doc.addImage(img, 'JPEG', 80, 70, 50, 50);
             } catch (e) {
                 console.log('Error adding profile image to PDF:', e);
@@ -656,7 +656,7 @@ const Report = () => {
                                 <div className="flex-shrink-0">
                                     <img
                                         src={profileData?.profileImage ? 
-                                            `http://localhost:5000/${profileData.profileImage}` : 
+                                            `https://internship-hub-backend.vercel.app/${profileData.profileImage}` : 
                                             'https://placehold.co/150x150'}
                                         alt="Profile"
                                         className="w-32 h-32 rounded-full border-2 border-blue-200 object-cover"

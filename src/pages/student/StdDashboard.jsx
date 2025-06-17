@@ -41,9 +41,9 @@ const StudentDashboard = () => {
 
       // Fetch all data in parallel
       const [applicationsRes, approvedRes, tasksRes] = await Promise.all([
-        axios.get(`http://localhost:5000/api/internships/applied-internships/${studentId}`),
-        axios.get(`http://localhost:5000/api/internships/approved/${studentId}`),
-        axios.get(`http://localhost:5000/api/tasks/student/${studentId}`)
+        axios.get(`https://internship-hub-backend.vercel.app/api/internships/applied-internships/${studentId}`),
+        axios.get(`https://internship-hub-backend.vercel.app/api/internships/approved/${studentId}`),
+        axios.get(`https://internship-hub-backend.vercel.app/api/tasks/student/${studentId}`)
       ]);
 
       // Process application status distribution

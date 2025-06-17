@@ -47,7 +47,7 @@ const Applications = () => {
   // Fetch approved applications
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/applications/${companyId}`);
+      const response = await axios.get(`https://internship-hub-backend.vercel.app/api/applications/${companyId}`);
       const approvedApplications = response.data.filter((item) => item.status === 1); // Filter only approved
       console.log('Approved applications:', approvedApplications);
       setData(approvedApplications);
@@ -72,13 +72,13 @@ const Applications = () => {
 
       // Fetch user, profile, and student data in parallel
       const [userResponse, profileResponse, studentResponse] = await Promise.all([
-        axios.get(`http://localhost:5000/api/users/${studentId}`, {
+        axios.get(`https://internship-hub-backend.vercel.app/api/users/${studentId}`, {
           headers: { Authorization: `Bearer ${token}` },
         }),
-        axios.get(`http://localhost:5000/api/profiles/${studentId}`, {
+        axios.get(`https://internship-hub-backend.vercel.app/api/profiles/${studentId}`, {
           headers: { Authorization: `Bearer ${token}` },
         }),
-        axios.get(`http://localhost:5000/api/profiles/student/${studentId}`, {
+        axios.get(`https://internship-hub-backend.vercel.app/api/profiles/student/${studentId}`, {
           headers: { Authorization: `Bearer ${token}` },
         }),
       ]);
@@ -173,7 +173,7 @@ const Applications = () => {
     if (viewData.profileImage) {
       try {
         const img = new Image();
-        img.src = `http://localhost:5000/${viewData.profileImage}`;
+        img.src = `https://internship-hub-backend.vercel.app/${viewData.profileImage}`;
         doc.addImage(img, 'JPEG', 80, 70, 50, 50);
       } catch (e) {
         console.log('Error adding profile image to PDF:', e);
@@ -282,7 +282,7 @@ const Applications = () => {
         evaluation,
       };
 
-      await axios.post(`http://localhost:5000/api/remarks/${selectedStudent}`, payload);
+      await axios.post(`https://internship-hub-backend.vercel.app/api/remarks/${selectedStudent}`, payload);
 
       setAlertMessage({ type: 'success', text: 'Remarks submitted successfully!' });
 
@@ -503,7 +503,7 @@ const Applications = () => {
                         <img
                           src={
                             viewData.profileImage
-                              ? `http://localhost:5000/${viewData.profileImage}`
+                              ? `https://internship-hub-backend.vercel.app/${viewData.profileImage}`
                               : 'https://placehold.co/150x150'
                           }
                           alt="Profile"

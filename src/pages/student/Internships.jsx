@@ -41,7 +41,7 @@
 
 // // //   const fetchInternships = async () => {
 // // //     try {
-// // //       const response = await axios.get("http://localhost:5000/api/internships");
+// // //       const response = await axios.get("https://internship-hub-backend.vercel.app/api/internships");
 // // //       setInternships(response.data);
 // // //     } catch (error) {
 // // //       console.error("Failed to fetch internships:", error);
@@ -65,7 +65,7 @@
    
 // // //     try {
 // // //       const response = await axios.post(
-// // //         `http://localhost:5000/api/internships/${selectedInternship}/apply`,
+// // //         `https://internship-hub-backend.vercel.app/api/internships/${selectedInternship}/apply`,
 // // //         data
 // // //       );
 // // //       setIsModalOpen(false); // Close the modal
@@ -415,7 +415,7 @@
 
 // //   const fetchInternships = async () => {
 // //     try {
-// //       const response = await axios.get("http://localhost:5000/api/internships");
+// //       const response = await axios.get("https://internship-hub-backend.vercel.app/api/internships");
 // //       setInternships(response.data);
 // //       console.log(response.data)
 // //     } catch (error) {
@@ -443,7 +443,7 @@
 // //     setSelectedInternship(id);
 
 // //     try {
-// //       const response = await axios.post(`http://localhost:5000/api/internships/${id}/apply`);
+// //       const response = await axios.post(`https://internship-hub-backend.vercel.app/api/internships/${id}/apply`);
 // //       setIsModalOpen(false);
 // //       setApplicationStatus({ success: true, message: response.data.message });
 // //       setTimeout(() => setApplicationStatus(null), 5000);
@@ -770,7 +770,7 @@
 //   const fetchInternships = async () => {
 //     try {
 //       setLoading(true);
-//       const response = await axios.get("http://localhost:5000/api/internships");
+//       const response = await axios.get("https://internship-hub-backend.vercel.app/api/internships");
 //       setInternships(response.data);
 //     } catch (error) {
 //       console.error("Failed to fetch internships:", error);
@@ -792,7 +792,7 @@
 //     try {
 //       setLoading(true);
 //       const response = await axios.get(
-//         `http://localhost:5000/api/internships/approved/${studentId}`
+//         `https://internship-hub-backend.vercel.app/api/internships/approved/${studentId}`
 //       );
 //       console.log(response.data)
 //       // Assume response.data.applications is an array of applications
@@ -946,7 +946,7 @@
 
 //     try {
 //       const response = await axios.post(
-//         `http://localhost:5000/api/internships/${id}/apply`,
+//         `https://internship-hub-backend.vercel.app/api/internships/${id}/apply`,
 //         data
 //       );
 //       setIsModalOpen(false);
@@ -1313,7 +1313,7 @@ const Internships = () => {
   const fetchInternships = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("http://localhost:5000/api/internships");
+      const response = await axios.get("https://internship-hub-backend.vercel.app/api/internships");
       setInternships(response.data);
     } catch (error) {
       console.error("Failed to fetch internships:", error);
@@ -1341,7 +1341,7 @@ const Internships = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `http://localhost:5000/api/internships/approved/${studentId}`
+        `https://internship-hub-backend.vercel.app/api/internships/approved/${studentId}`
       );
       const activeCount = response.data.count;
       setActiveInternshipsCount(activeCount);;
@@ -1490,7 +1490,7 @@ const Internships = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:5000/api/internships/${id}/apply`,
+        `https://internship-hub-backend.vercel.app/api/internships/${id}/apply`,
         data
       );
       console.log(id)

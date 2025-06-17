@@ -47,9 +47,9 @@
       
 //       // Fetch all statistics in parallel
 //       const [postsRes, appsRes, tasksRes] = await Promise.all([
-//         axios.get(`http://localhost:5000/api/internships/${companyId}`),
-//         axios.get(`http://localhost:5000/api/applications/${companyId}`),
-//         axios.get(`http://localhost:5000/api/tasks/${companyId}`)
+//         axios.get(`https://internship-hub-backend.vercel.app/api/internships/${companyId}`),
+//         axios.get(`https://internship-hub-backend.vercel.app/api/applications/${companyId}`),
+//         axios.get(`https://internship-hub-backend.vercel.app/api/tasks/${companyId}`)
 //       ]);
 
 //       // Fetch approved students count and status distribution separately
@@ -79,7 +79,7 @@
 //   const fetchApprovedStudents = async (companyId) => {
 //     try {
 //       const response = await axios.get(
-//         `http://localhost:5000/api/applications/approved/${companyId}`
+//         `https://internship-hub-backend.vercel.app/api/applications/approved/${companyId}`
 //       );
 //       return response.data.length || 0;
 //     } catch (error) {
@@ -91,7 +91,7 @@
 //   const fetchStatusDistribution = async (companyId) => {
 //     try {
 //       const response = await axios.get(
-//         `http://localhost:5000/api/internships/status-distribution/${companyId}`
+//         `https://internship-hub-backend.vercel.app/api/internships/status-distribution/${companyId}`
 //       );
 //       return response.data.distribution || {
 //         Pending: 0,
@@ -462,9 +462,9 @@ const SoftwareHouseDashboard = () => {
       
       // Fetch all basic data in parallel
       const [internshipsRes, applicationsRes, tasksRes] = await Promise.all([
-        axios.get(`http://localhost:5000/api/internships/${companyId}`),
-        axios.get(`http://localhost:5000/api/applications/${companyId}`),
-        axios.get(`http://localhost:5000/api/tasks/${companyId}`)
+        axios.get(`https://internship-hub-backend.vercel.app/api/internships/${companyId}`),
+        axios.get(`https://internship-hub-backend.vercel.app/api/applications/${companyId}`),
+        axios.get(`https://internship-hub-backend.vercel.app/api/tasks/${companyId}`)
       ]);
 
       // Process approved applications count

@@ -52,7 +52,7 @@
 
 // //     const fetchCompanies = async () => {
 // //         try {
-// //             const response = await axios.get('http://localhost:5000/api/softwarehouses/');
+// //             const response = await axios.get('https://internship-hub-backend.vercel.app/api/softwarehouses/');
 // //             setCompanies(response.data);
 // //         } catch (error) {
 // //             console.error('Failed to fetch companies:', error);
@@ -61,7 +61,7 @@
 
 // //     const fetchInternships = async () => {
 // //         try {
-// //             const response = await axios.get(`http://localhost:5000/api/internships/${companyId}`);
+// //             const response = await axios.get(`https://internship-hub-backend.vercel.app/api/internships/${companyId}`);
 // //             setInternships(response.data);
 // //         } catch (error) {
 // //             console.error('Failed to fetch internships:', error);
@@ -85,14 +85,14 @@
 // //             }
 
 // //             if (editId) {
-// //                 await axios.put(`http://localhost:5000/api/internships/${editId}`, formDataToSend, {
+// //                 await axios.put(`https://internship-hub-backend.vercel.app/api/internships/${editId}`, formDataToSend, {
 // //                     headers: { 'Content-Type': 'multipart/form-data' },
 // //                 });
 // //                 setInternships((prevData) =>
 // //                     prevData.map((item) => (item._id === editId ? { ...item, ...formData } : item))
 // //                 );
 // //             } else {
-// //                 const response = await axios.post('http://localhost:5000/api/internships', formDataToSend, {
+// //                 const response = await axios.post('https://internship-hub-backend.vercel.app/api/internships', formDataToSend, {
 // //                     headers: { 'Content-Type': 'multipart/form-data' },
 // //                 });
 // //                 setInternships((prevData) => [...prevData, response.data]);
@@ -135,7 +135,7 @@
 
 // //     const handleDelete = async (id) => {
 // //         try {
-// //             await axios.delete(`http://localhost:5000/api/internships/${id}`);
+// //             await axios.delete(`https://internship-hub-backend.vercel.app/api/internships/${id}`);
 // //             setInternships((prevData) => prevData.filter((item) => item._id !== id));
 // //             alert('Internship deleted successfully');
 // //         } catch (error) {
@@ -368,7 +368,7 @@
 
 //     const fetchCompanies = async () => {
 //         try {
-//             const response = await axios.get('http://localhost:5000/api/softwarehouses/');
+//             const response = await axios.get('https://internship-hub-backend.vercel.app/api/softwarehouses/');
 //             setCompanies(response.data);
 //         } catch (error) {
 //             console.error('Failed to fetch companies:', error);
@@ -377,7 +377,7 @@
 
 //     const fetchInternships = async () => {
 //         try {
-//             const response = await axios.get(`http://localhost:5000/api/internships/${companyId}`);
+//             const response = await axios.get(`https://internship-hub-backend.vercel.app/api/internships/${companyId}`);
 //             setInternships(response.data);
 //         } catch (error) {
 //             console.error('Failed to fetch internships:', error);
@@ -457,14 +457,14 @@
 //             }
 
 //             if (editId) {
-//                 await axios.put(`http://localhost:5000/api/internships/${editId}`, formDataToSend, {
+//                 await axios.put(`https://internship-hub-backend.vercel.app/api/internships/${editId}`, formDataToSend, {
 //                     headers: { 'Content-Type': 'multipart/form-data' },
 //                 });
 //                 setInternships((prevData) =>
 //                     prevData.map((item) => (item._id === editId ? { ...item, ...formData } : item))
 //                 );
 //             } else {
-//                 const response = await axios.post('http://localhost:5000/api/internships', formDataToSend, {
+//                 const response = await axios.post('https://internship-hub-backend.vercel.app/api/internships', formDataToSend, {
 //                     headers: { 'Content-Type': 'multipart/form-data' },
 //                 });
 //                 setInternships((prevData) => [...prevData, response.data]);
@@ -513,7 +513,7 @@
 //     const handleDelete = async (id) => {
 //         if (window.confirm('Are you sure you want to delete this internship?')) {
 //             try {
-//                 await axios.delete(`http://localhost:5000/api/internships/${id}`);
+//                 await axios.delete(`https://internship-hub-backend.vercel.app/api/internships/${id}`);
 //                 setInternships((prevData) => prevData.filter((item) => item._id !== id));
 //                 alert('Internship deleted successfully');
 //             } catch (error) {
@@ -807,7 +807,7 @@ const Internships = () => {
 
   const fetchCompanies = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/softwarehouses/");
+      const response = await axios.get("https://internship-hub-backend.vercel.app/api/softwarehouses/");
       setCompanies(response.data);
     } catch (error) {
       console.error("Failed to fetch companies:", error);
@@ -817,7 +817,7 @@ const Internships = () => {
 
   const fetchInternships = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/internships/${companyId}`);
+      const response = await axios.get(`https://internship-hub-backend.vercel.app/api/internships/${companyId}`);
       setInternships(response.data);
     } catch (error) {
       console.error("Failed to fetch internships:", error);
@@ -890,7 +890,7 @@ const Internships = () => {
       }
 
       if (editId) {
-        await axios.put(`http://localhost:5000/api/internships/${editId}`, formDataToSend, {
+        await axios.put(`https://internship-hub-backend.vercel.app/api/internships/${editId}`, formDataToSend, {
           headers: { "Content-Type": "multipart/form-data" },
         });
         setInternships((prevData) =>
@@ -900,7 +900,7 @@ const Internships = () => {
         );
         toast.success("Internship updated successfully!");
       } else {
-        const response = await axios.post("http://localhost:5000/api/internships", formDataToSend, {
+        const response = await axios.post("https://internship-hub-backend.vercel.app/api/internships", formDataToSend, {
           headers: { "Content-Type": "multipart/form-data" },
         });
         setInternships((prevData) => [...prevData, response.data]);
@@ -927,7 +927,7 @@ const Internships = () => {
       postedBy: item?.postedBy || loginID,
       image: item.image || null,
     });
-    setImagePreview(item.image ? `http://localhost:5000/${item.image}` : null);
+    setImagePreview(item.image ? `https://internship-hub-backend.vercel.app/${item.image}` : null);
     setEditId(item._id);
     setModalTitle("Edit Internship");
     setShowModal(true);
@@ -938,7 +938,7 @@ const Internships = () => {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this internship?")) {
       try {
-        await axios.delete(`http://localhost:5000/api/internships/${id}`);
+        await axios.delete(`https://internship-hub-backend.vercel.app/api/internships/${id}`);
         setInternships((prevData) => prevData.filter((item) => item._id !== id));
         toast.success("Internship deleted successfully!");
       } catch (error) {

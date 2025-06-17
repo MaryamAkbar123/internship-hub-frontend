@@ -131,13 +131,13 @@
       
 //       // Fetch basic counts
 //       const [companiesRes, applicationsRes, studentsRes] = await Promise.all([
-//         axios.get("http://localhost:5000/api/softwarehouses"),
-//         axios.get(`http://localhost:5000/api/softwarehouses/byid/${status}`),
-//         axios.get(`http://localhost:5000/api/users/${role}`)
+//         axios.get("https://internship-hub-backend.vercel.app/api/softwarehouses"),
+//         axios.get(`https://internship-hub-backend.vercel.app/api/softwarehouses/byid/${status}`),
+//         axios.get(`https://internship-hub-backend.vercel.app/api/users/${role}`)
 //       ]);
 
 //       // Fetch internship data
-//       const internshipsResponse = await axios.get("http://localhost:5000/api/internships");
+//       const internshipsResponse = await axios.get("https://internship-hub-backend.vercel.app/api/internships");
 //       const internships = internshipsResponse.data;
       
 //       // Process internship data
@@ -155,7 +155,7 @@
             
 //             // Get students for this internship
 //             const studentsResponse = await axios.get(
-//               `http://localhost:5000/api/internships/${internship._id}/students`
+//               `https://internship-hub-backend.vercel.app/api/internships/${internship._id}/students`
 //             );
             
 //             studentsInInternships += studentsResponse.data?.length || 0;
@@ -442,13 +442,13 @@ const Dashboard = () => {
       
       // Fetch basic counts
       const [companiesRes, applicationsRes, studentsRes] = await Promise.all([
-        axios.get("http://localhost:5000/api/softwarehouses"),
-        axios.get(`http://localhost:5000/api/softwarehouses/byid/${status}`),
-        axios.get(`http://localhost:5000/api/users/${role}`)
+        axios.get("https://internship-hub-backend.vercel.app/api/softwarehouses"),
+        axios.get(`https://internship-hub-backend.vercel.app/api/softwarehouses/byid/${status}`),
+        axios.get(`https://internship-hub-backend.vercel.app/api/users/${role}`)
       ]);
 
       // Fetch internship data
-      const internshipsResponse = await axios.get("http://localhost:5000/api/internships");
+      const internshipsResponse = await axios.get("https://internship-hub-backend.vercel.app/api/internships");
       const internships = internshipsResponse.data;
       
       // Process internship data
@@ -466,7 +466,7 @@ const Dashboard = () => {
             
             // Get students for this internship
             const studentsResponse = await axios.get(
-              `http://localhost:5000/api/internships/${internship._id}/students`
+              `https://internship-hub-backend.vercel.app/api/internships/${internship._id}/students`
             );
             
             studentsInInternships += studentsResponse.data?.length || 0;

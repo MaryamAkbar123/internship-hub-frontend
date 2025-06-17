@@ -21,7 +21,7 @@ const AppliedInternships = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `http://localhost:5000/api/internships/applied-internships/${studentId}`
+        `https://internship-hub-backend.vercel.app/api/internships/applied-internships/${studentId}`
       );
       console.log(response.data);
       setInternships(response.data.applications);

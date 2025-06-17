@@ -28,7 +28,7 @@
 //   const getInternships = async () => {
 //     try {
 //       const response = await axios.get(
-//         `http://localhost:5000/api/internships/softhouse/${email}`
+//         `https://internship-hub-backend.vercel.app/api/internships/softhouse/${email}`
 //       );
 //       setInternships(response.data);
 //     } catch (error) {
@@ -39,7 +39,7 @@
 //   const getProfile = async () => {
 //     try {
 //       const response = await axios.get(
-//         `http://localhost:5000/api/softwarehouses/profile/${email}`
+//         `https://internship-hub-backend.vercel.app/api/softwarehouses/profile/${email}`
 //       );
 //       setProfile(response.data);
 //     } catch (error) {
@@ -73,7 +73,7 @@
 //   const handleSubmit = async () => {
 //     try {
 //       await axios.patch(
-//         `http://localhost:5000/api/softwarehouses/${profile._id}`,
+//         `https://internship-hub-backend.vercel.app/api/softwarehouses/${profile._id}`,
 //         companyData
 //       );
 //       alert("Profile updated successfully!");
@@ -272,7 +272,7 @@
 //   const getInternships = async () => {
 //     try {
 //       const response = await axios.get(
-//         `http://localhost:5000/api/internships/softhouse/${email}`
+//         `https://internship-hub-backend.vercel.app/api/internships/softhouse/${email}`
 //       );
 //       setInternships(response.data);
 //     } catch (error) {
@@ -283,7 +283,7 @@
 //   const getProfile = async () => {
 //     try {
 //       const response = await axios.get(
-//         `http://localhost:5000/api/softwarehouses/profile/${email}`
+//         `https://internship-hub-backend.vercel.app/api/softwarehouses/profile/${email}`
 //       );
 //       setProfile(response.data);
 //     } catch (error) {
@@ -326,7 +326,7 @@
 //   const handleSubmit = async () => {
 //     try {
 //       await axios.patch(
-//         `http://localhost:5000/api/softwarehouses/${profile._id}`,
+//         `https://internship-hub-backend.vercel.app/api/softwarehouses/${profile._id}`,
 //         companyData
 //       );
 //       alert("Profile updated successfully!");
@@ -672,7 +672,7 @@ const SoftHouseProfile = ({ email }) => {
   const getInternships = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/internships/softhouse/${email}`
+        `https://internship-hub-backend.vercel.app/api/internships/softhouse/${email}`
       );
       setInternships(response.data);
     } catch (error) {
@@ -683,7 +683,7 @@ const SoftHouseProfile = ({ email }) => {
   const getProfile = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/softwarehouses/profile/${email}`
+        `https://internship-hub-backend.vercel.app/api/softwarehouses/profile/${email}`
       );
       setProfile(response.data);
     } catch (error) {
@@ -732,7 +732,7 @@ const SoftHouseProfile = ({ email }) => {
       }
 
       await axios.patch(
-        `http://localhost:5000/api/softwarehouses/${profile._id}`,
+        `https://internship-hub-backend.vercel.app/api/softwarehouses/${profile._id}`,
         formData,
         {
           headers: {
@@ -777,7 +777,7 @@ const SoftHouseProfile = ({ email }) => {
             <div className="relative">
               <img
                 src={companyData.profileImage ? 
-                  `http://localhost:5000/${companyData.profileImage}` : 
+                  `https://internship-hub-backend.vercel.app/${companyData.profileImage}` : 
                   'https://placehold.co/150x150'}
                 alt="Company Logo"
                 className="w-16 h-16 rounded-full border-4 border-white shadow-lg object-cover"
@@ -808,7 +808,7 @@ const SoftHouseProfile = ({ email }) => {
                 <div className="relative">
                   <img
                     src={companyData.profileImage ? 
-                      `http://localhost:5000/${companyData.profileImage}` : 
+                      `https://internship-hub-backend.vercel.app/${companyData.profileImage}` : 
                       'https://placehold.co/150x150'}
                     alt="Company Logo"
                     className="w-32 h-32 rounded-full object-cover border-4 border-white shadow-lg"

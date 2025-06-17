@@ -41,7 +41,7 @@
 //         setLoading(true);
         
 //         // First fetch all internships
-//         const internshipsResponse = await axios.get("http://localhost:5000/api/internships");
+//         const internshipsResponse = await axios.get("https://internship-hub-backend.vercel.app/api/internships");
 //         const internships = internshipsResponse.data;
         
 //         // Fetch additional details for each internship
@@ -50,12 +50,12 @@
 //             try {
 //               // Fetch company details
 //               const companyResponse = await axios.get(
-//                 `http://localhost:5000/api/softwarehouses/${internship.companyId}`
+//                 `https://internship-hub-backend.vercel.app/api/softwarehouses/${internship.companyId}`
 //               );
               
 //               // Fetch students for this internship
 //               const studentsResponse = await axios.get(
-//                 `http://localhost:5000/api/internships/${internship._id}/students`
+//                 `https://internship-hub-backend.vercel.app/api/internships/${internship._id}/students`
 //               );
               
 //               return {
@@ -497,17 +497,17 @@ const StudentInternshipDetails = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const internshipsResponse = await axios.get("http://localhost:5000/api/internships");
+        const internshipsResponse = await axios.get("https://internship-hub-backend.vercel.app/api/internships");
         const internships = internshipsResponse.data;
         
         const enrichedInternships = await Promise.all(
           internships.map(async (internship) => {
             try {
               const companyResponse = await axios.get(
-                `http://localhost:5000/api/softwarehouses/${internship.companyId}`
+                `https://internship-hub-backend.vercel.app/api/softwarehouses/${internship.companyId}`
               );
               const studentsResponse = await axios.get(
-                `http://localhost:5000/api/internships/${internship._id}/students`
+                `https://internship-hub-backend.vercel.app/api/internships/${internship._id}/students`
               );
               
               return {

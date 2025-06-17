@@ -72,11 +72,11 @@ const SoftHouseRegistration = () => {
     if (!validate()) return;
     const fullPhoneNumber = countryCode + phoneNumber;
     try {
-      const response = await axios.post('http://localhost:5000/api/softwarehouses', {
+      const response = await axios.post('https://internship-hub-backend.vercel.app/api/softwarehouses', {
         ...formData,
         phone: fullPhoneNumber,
       });
-      await axios.post('http://localhost:5000/api/users', {
+      await axios.post('https://internship-hub-backend.vercel.app/api/users', {
         ...formData,
         phone: fullPhoneNumber,
       });

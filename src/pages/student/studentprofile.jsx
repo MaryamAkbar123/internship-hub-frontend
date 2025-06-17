@@ -33,7 +33,7 @@
 //   useEffect(() => {
 //     const fetchStudentProfile = async () => {
 //       try {
-//         const response = await axios.get(`http://localhost:5000/api/profiles`);
+//         const response = await axios.get(`https://internship-hub-backend.vercel.app/api/profiles`);
 //         const studentProfile = response.data.find(profile => profile.studentId === studentId);
         
 //         if (studentProfile) {
@@ -58,14 +58,14 @@
 //     setLoadingInternships(true);
     
 //     // 1. Fetch profile data
-//     const profileResponse = await axios.get(`http://localhost:5000/api/profiles`);
+//     const profileResponse = await axios.get(`https://internship-hub-backend.vercel.app/api/profiles`);
 //     const studentProfile = profileResponse.data.find(profile => profile.studentId === studentId);
     
 //     // 2. Fetch applications
-//     const applicationsResponse = await axios.get(`http://localhost:5000/api/applications`);
+//     const applicationsResponse = await axios.get(`https://internship-hub-backend.vercel.app/api/applications`);
     
 //     // 3. Fetch all software houses/companies
-//     const companiesResponse = await axios.get(`http://localhost:5000/api/softwarehouses`);
+//     const companiesResponse = await axios.get(`https://internship-hub-backend.vercel.app/api/softwarehouses`);
 //     const companies = companiesResponse.data;
     
 //     // 4. Filter approved applications for current student
@@ -123,7 +123,7 @@
 //         formData.append(key, profile[key]);
 //       }
 
-//       await axios.post('http://localhost:5000/api/profiles', formData, {
+//       await axios.post('https://internship-hub-backend.vercel.app/api/profiles', formData, {
 //         headers: { 'Content-Type': 'multipart/form-data' }
 //       });
 
@@ -166,7 +166,7 @@
 //             <img
 //               src={
 //                 profile.profileImage
-//                   ? `http://localhost:5000/${profile.profileImage}`
+//                   ? `https://internship-hub-backend.vercel.app/${profile.profileImage}`
 //                   : 'https://placehold.co/100x100'
 //               }
 //               alt="Profile"
@@ -401,7 +401,7 @@
 //   useEffect(() => {
 //     const fetchStudentProfile = async () => {
 //       try {
-//         const response = await axios.get(`http://localhost:5000/api/profiles`);
+//         const response = await axios.get(`https://internship-hub-backend.vercel.app/api/profiles`);
 //         const studentProfile = response.data.find(profile => profile.studentId === studentId);
         
 //         if (studentProfile) {
@@ -425,11 +425,11 @@
 //       try {
 //         setLoadingInternships(true);
         
-//         const profileResponse = await axios.get(`http://localhost:5000/api/profiles`);
+//         const profileResponse = await axios.get(`https://internship-hub-backend.vercel.app/api/profiles`);
 //         const studentProfile = profileResponse.data.find(profile => profile.studentId === studentId);
         
-//         const applicationsResponse = await axios.get(`http://localhost:5000/api/applications`);
-//         const companiesResponse = await axios.get(`http://localhost:5000/api/softwarehouses`);
+//         const applicationsResponse = await axios.get(`https://internship-hub-backend.vercel.app/api/applications`);
+//         const companiesResponse = await axios.get(`https://internship-hub-backend.vercel.app/api/softwarehouses`);
 //         const companies = companiesResponse.data;
         
 //         const studentApplications = applicationsResponse.data.filter(app => 
@@ -482,7 +482,7 @@
 //         formData.append(key, profile[key]);
 //       }
 
-//       await axios.post('http://localhost:5000/api/profiles', formData, {
+//       await axios.post('https://internship-hub-backend.vercel.app/api/profiles', formData, {
 //         headers: { 'Content-Type': 'multipart/form-data' }
 //       });
 
@@ -542,7 +542,7 @@
 //               <div className="w-full md:w-1/3">
 //                 <div className="flex flex-col items-center mb-6">
 //                   <img
-//                     src={profile.profileImage ? `http://localhost:5000/${profile.profileImage}` : 'https://placehold.co/150x150'}
+//                     src={profile.profileImage ? `https://internship-hub-backend.vercel.app/${profile.profileImage}` : 'https://placehold.co/150x150'}
 //                     alt="Profile"
 //                     className="w-32 h-32 rounded-full border-4 border-blue-100 object-cover mb-4"
 //                   />
@@ -835,7 +835,7 @@ const StudentProfile = () => {
   useEffect(() => {
     const fetchStudentProfile = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/profiles`);
+        const response = await axios.get(`https://internship-hub-backend.vercel.app/api/profiles`);
         const studentProfile = response.data.find(profile => profile.studentId === studentId);
         
         if (studentProfile) {
@@ -859,11 +859,11 @@ const StudentProfile = () => {
       try {
         setLoadingInternships(true);
         
-        const profileResponse = await axios.get(`http://localhost:5000/api/profiles`);
+        const profileResponse = await axios.get(`https://internship-hub-backend.vercel.app/api/profiles`);
         const studentProfile = profileResponse.data.find(profile => profile.studentId === studentId);
         
-        const applicationsResponse = await axios.get(`http://localhost:5000/api/applications`);
-        const companiesResponse = await axios.get(`http://localhost:5000/api/softwarehouses`);
+        const applicationsResponse = await axios.get(`https://internship-hub-backend.vercel.app/api/applications`);
+        const companiesResponse = await axios.get(`https://internship-hub-backend.vercel.app/api/softwarehouses`);
         const companies = companiesResponse.data;
         
         const studentApplications = applicationsResponse.data.filter(app => 
@@ -918,7 +918,7 @@ const StudentProfile = () => {
         formData.append(key, profile[key]);
       }
 
-      await axios.post('http://localhost:5000/api/profiles', formData, {
+      await axios.post('https://internship-hub-backend.vercel.app/api/profiles', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
 
@@ -956,7 +956,7 @@ const StudentProfile = () => {
           </div>
             <div className="relative mb-4">
                   <img
-                    src={profile.profileImage ? `http://localhost:5000/${profile.profileImage}` : 'https://placehold.co/150x150'}
+                    src={profile.profileImage ? `https://internship-hub-backend.vercel.app/${profile.profileImage}` : 'https://placehold.co/150x150'}
                     alt="Profile"
                     className="w-28 h-28 rounded-full border-4 border-blue-100 object-cover"
                   />

@@ -16,7 +16,7 @@ function Chatbot() {
 
     try {
       // Make an API call to your backend (ensure it's running on localhost:5000)
-      const response = await axios.post("http://localhost:5000/api/chat", {
+      const response = await axios.post("https://internship-hub-backend.vercel.app/api/chat", {
         prompt: input,
       });
 

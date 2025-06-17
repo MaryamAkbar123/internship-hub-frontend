@@ -77,7 +77,7 @@ const StudentRegistration = () => {
         if (!validateForm()) return;
 
         try {
-            const response = await axios.post("http://localhost:5000/api/auth/register", { ...formData, role: "student" });
+            const response = await axios.post("https://internship-hub-backend.vercel.app/api/auth/register", { ...formData, role: "student" });
             setMessage(response.data.message);
             navigate("/student/login");
         } catch (error) {

@@ -27,7 +27,7 @@ const LandingPage = () => {
 
   const fetchInternships = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/internships');
+      const response = await axios.get('https://internship-hub-backend.vercel.app/api/internships');
       setInternships(response.data);
     } catch (error) {
       console.error('Failed to fetch internships:', error);

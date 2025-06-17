@@ -13,7 +13,7 @@ const ApprovedInternships = () => {
   const fetchApprovedInternships = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/internships/approved/${studentId}`
+        `https://internship-hub-backend.vercel.app/api/internships/approved/${studentId}`
       );
       setInternships(response.data.internships || []);
       setLoading(false);

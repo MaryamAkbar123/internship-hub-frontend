@@ -15,7 +15,7 @@ const ForgotPassword = ({ onClose }) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/users/forgetpassword",
+        "https://internship-hub-backend.vercel.app/api/users/forgetpassword",
         {
           email: resetEmail,
         }

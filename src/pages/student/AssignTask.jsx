@@ -12,7 +12,7 @@ const AssignTask = () => {
     try {
       console.log("stdid", stdId);
       const response = await axios.get(
-        `http://localhost:5000/api/tasks/student/${stdId}`
+        `https://internship-hub-backend.vercel.app/api/tasks/student/${stdId}`
       );
       setTasks(response.data);
       console.log("Tasks:", response.data);
@@ -45,7 +45,7 @@ const AssignTask = () => {
       formData.append("status", 2);
       console.log(formData);
       const response = await axios.patch(
-        `http://localhost:5000/api/tasks/uploadpdf/${taskId}`,
+        `https://internship-hub-backend.vercel.app/api/tasks/uploadpdf/${taskId}`,
         formData,
         {
           headers: {

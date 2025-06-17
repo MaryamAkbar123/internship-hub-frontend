@@ -31,7 +31,7 @@
 //   // Fetch applications (excluding already approved ones)
 //   const fetchData = async () => {
 //     try {
-//       const response = await axios.get(`http://localhost:5000/api/applications/${companyId}`);
+//       const response = await axios.get(`https://internship-hub-backend.vercel.app/api/applications/${companyId}`);
 //       const filteredData = response.data.filter((item) => item.status !== 1); // Exclude approved
 //       setData(filteredData);
 //     } catch (error) {
@@ -43,7 +43,7 @@
 //   // Toggle approval/rejection
 //   const toggleStatus = async (id, status) => {
 //     try {
-//       await axios.put(`http://localhost:5000/api/applications/status/${id}`, { status });
+//       await axios.put(`https://internship-hub-backend.vercel.app/api/applications/status/${id}`, { status });
 //       if (status === 1) {
 //         setData((prevData) => prevData.filter((item) => item._id !== id));
 //         toast.success('Application approved successfully!');
@@ -72,13 +72,13 @@
 
 //       // Fetch user, profile, and student data in parallel (no achievements)
 //       const [userResponse, profileResponse, studentResponse] = await Promise.all([
-//         axios.get(`http://localhost:5000/api/users/${studentId}`, {
+//         axios.get(`https://internship-hub-backend.vercel.app/api/users/${studentId}`, {
 //           headers: { Authorization: `Bearer ${token}` },
 //         }),
-//         axios.get(`http://localhost:5000/api/profiles/${studentId}`, {
+//         axios.get(`https://internship-hub-backend.vercel.app/api/profiles/${studentId}`, {
 //           headers: { Authorization: `Bearer ${token}` },
 //         }),
-//         axios.get(`http://localhost:5000/api/profiles/student/${studentId}`, {
+//         axios.get(`https://internship-hub-backend.vercel.app/api/profiles/student/${studentId}`, {
 //           headers: { Authorization: `Bearer ${token}` },
 //         }),
 //       ]);
@@ -173,7 +173,7 @@
 //     if (viewData.profileImage) {
 //       try {
 //         const img = new Image();
-//         img.src = `http://localhost:5000/${viewData.profileImage}`;
+//         img.src = `https://internship-hub-backend.vercel.app/${viewData.profileImage}`;
 //         doc.addImage(img, 'JPEG', 80, 70, 50, 50);
 //       } catch (e) {
 //         console.log('Error adding profile image to PDF:', e);
@@ -402,7 +402,7 @@
 //                         <img
 //                           src={
 //                             viewData.profileImage
-//                               ? `http://localhost:5000/${viewData.profileImage}`
+//                               ? `https://internship-hub-backend.vercel.app/${viewData.profileImage}`
 //                               : 'https://placehold.co/150x150'
 //                           }
 //                           alt="Profile"
@@ -675,7 +675,7 @@ const Applications = () => {
   // Fetch applications (excluding already approved ones)
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/applications/${companyId}`);
+      const response = await axios.get(`https://internship-hub-backend.vercel.app/api/applications/${companyId}`);
       const filteredData = response.data.filter((item) => item.status !== 1); // Exclude approved
       setData(filteredData);
     } catch (error) {
@@ -687,7 +687,7 @@ const Applications = () => {
   // Toggle approval/rejection
   const toggleStatus = async (id, status) => {
     try {
-      await axios.put(`http://localhost:5000/api/applications/status/${id}`, { status });
+      await axios.put(`https://internship-hub-backend.vercel.app/api/applications/status/${id}`, { status });
       if (status === 1) {
         setData((prevData) => prevData.filter((item) => item._id !== id));
         toast.success('Application approved successfully!');
@@ -716,13 +716,13 @@ const Applications = () => {
 
       // Fetch user, profile, and student data in parallel
       const [userResponse, profileResponse, studentResponse] = await Promise.all([
-        axios.get(`http://localhost:5000/api/users/${studentId}`, {
+        axios.get(`https://internship-hub-backend.vercel.app/api/users/${studentId}`, {
           headers: { Authorization: `Bearer ${token}` },
         }),
-        axios.get(`http://localhost:5000/api/profiles/${studentId}`, {
+        axios.get(`https://internship-hub-backend.vercel.app/api/profiles/${studentId}`, {
           headers: { Authorization: `Bearer ${token}` },
         }),
-        axios.get(`http://localhost:5000/api/profiles/student/${studentId}`, {
+        axios.get(`https://internship-hub-backend.vercel.app/api/profiles/student/${studentId}`, {
           headers: { Authorization: `Bearer ${token}` },
         }),
       ]);
@@ -754,7 +754,7 @@ const Applications = () => {
     }
 
     try {
-      const response = await axios.get(`http://localhost:5000/${resume.filePath}`, {
+      const response = await axios.get(`https://internship-hub-backend.vercel.app/${resume.filePath}`, {
         responseType: 'blob',
       });
       const url = window.URL.createObjectURL(new Blob([response.data]));
@@ -845,7 +845,7 @@ const Applications = () => {
     if (viewData.profileImage) {
       try {
         const img = new Image();
-        img.src = `http://localhost:5000/${viewData.profileImage}`;
+        img.src = `https://internship-hub-backend.vercel.app/${viewData.profileImage}`;
         doc.addImage(img, 'JPEG', 80, 70, 50, 50);
       } catch (e) {
         console.log('Error adding profile image to PDF:', e);
@@ -1082,7 +1082,7 @@ const Applications = () => {
                         <img
                           src={
                             viewData.profileImage
-                              ? `http://localhost:5000/${viewData.profileImage}`
+                              ? `https://internship-hub-backend.vercel.app/${viewData.profileImage}`
                               : 'https://placehold.co/150x150'
                           }
                           alt="Profile"

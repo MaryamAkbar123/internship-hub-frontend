@@ -19,7 +19,7 @@ const AdminLogin = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', {
+      const response = await axios.post('https://internship-hub-backend.vercel.app/api/auth/login', {
         email, password, role: 'admin'
       });
       login(response.data.token);
