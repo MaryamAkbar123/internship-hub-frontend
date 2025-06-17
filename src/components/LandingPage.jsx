@@ -576,6 +576,7 @@ useEffect(() => {
                                 className="w-full h-full object-cover"
                               />
                             </div>
+                            
                             <div className="md:w-1/2 p-6 flex flex-col justify-center">
                               <h3 className="text-2xl font-bold text-blue-900 mb-2">{internship.title}</h3>
                               <p className="text-gray-600 mb-4">{internship.description}</p>
