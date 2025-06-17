@@ -9,6 +9,10 @@ import axios from "axios";
 import Chatbot from '../components/ChatBot';
 import "../assets/css/landing.css";
 import myImage from "../assets/images/fypbg.jpg";
+import fyplogo from "../assets/images/fyplogo1.png";
+import Aboutus from "../assets/images/aboutusimg.jpg";
+
+
 
 const LandingPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -164,7 +168,7 @@ useEffect(() => {
                 }}
               >
                 <img
-                  src="src/assets/images/fyplogo1.png"
+                  src= {fyplogo}
                   alt="Logo"
                   className="h-16 w-16 rounded-full object-cover border-2 border-white"
                 />
@@ -355,7 +359,7 @@ useEffect(() => {
                 className="md:w-1/2"
               >
                 <img
-                  src="src/assets/images/aboutusimg.jpg"
+                  src={Aboutus}
                   alt="About CUI Internship Hub"
                   className="rounded-xl shadow-2xl w-full h-auto object-cover"
                 />
