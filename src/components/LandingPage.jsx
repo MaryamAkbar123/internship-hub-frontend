@@ -846,6 +846,7 @@ useEffect(() => {
                   >
                     <img
                       src={`/assets/images/${social.icon}.png`}
+
                       alt={social.name}
                       className="w-7 h-7 object-contain"
                     />
