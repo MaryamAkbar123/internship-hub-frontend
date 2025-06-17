@@ -448,6 +448,8 @@ const Dashboard = () => {
       ]);
 
       // Fetch internship data
+
+      
       const internshipsResponse = await axios.get("https://internship-hub-backend.vercel.app/api/internships");
       const internships = internshipsResponse.data;
       
