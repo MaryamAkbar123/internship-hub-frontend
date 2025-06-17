@@ -1503,11 +1503,28 @@ const LandingPage = () => {
                           className={`absolute inset-0 flex flex-col md:flex-row ${index === activeInternship ? 'block' : 'hidden'}`}
                         >
                           <div className="md:w-1/2 h-64 md:h-full">
-                            <img
+                            {/* <img
                               src={internship.image ? internshipImageMap[internship.image] || defaultInternshipImage : defaultInternshipImage}
                               alt={internship.title}
                               className="w-full h-full object-cover"
                               onError={() => console.error(`Failed to load image for ${internship.title}: ${internship.image}`)}
+                            /> */}
+
+                            <img
+                              src={
+                                // Check if image is a URL (starts with http/https)
+                                internship.image && internship.image.startsWith('http')
+                                  ? internship.image
+                                  : internship.image
+                                  ? internshipImageMap[internship.image] || defaultInternshipImage
+                                  : defaultInternshipImage
+                              }
+                              alt={internship.title}
+                              className="w-full h-full object-cover"
+                              onError={(e) => {
+                                console.error(`Failed to load image for ${internship.title}: ${internship.image}`);
+                                e.target.src = defaultInternshipImage; // Fallback on error
+                              }}
                             />
                           </div>
                           <div className="md:w-1/2 p-6 flex flex-col justify-center">
