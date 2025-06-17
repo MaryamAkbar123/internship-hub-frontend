@@ -442,9 +442,9 @@ const Dashboard = () => {
       
       // Fetch basic counts
       const [companiesRes, applicationsRes, studentsRes] = await Promise.all([
-        axios.get("http://localhost:5000/api/softwarehouses"),
-        axios.get(`http://localhost:5000/api/softwarehouses/byid/${status}`),
-        axios.get(`http://localhost:5000/api/users/${role}`)
+        axios.get("http://internship-hub-backend-production.up.railway.app/api/softwarehouses"),
+        axios.get(`http://internship-hub-backend-production.up.railway.app/api/softwarehouses/byid/${status}`),
+        axios.get(`http://internship-hub-backend-production.up.railway.app/api/users/${role}`)
       ]);
 
       // Fetch internship data
