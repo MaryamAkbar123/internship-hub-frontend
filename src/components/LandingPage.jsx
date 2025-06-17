@@ -950,16 +950,15 @@
 
 
 import React, { useEffect, useState, useRef } from "react";
-import { FaCaretDown, FaBars, FaChevronLeft, FaChevronRight, FaPhoneAlt, FaSearch, FaEnvelope, FaComments, FaArrowRight } from "react-icons/fa";
+import { FaCaretDown, FaBars, FaChevronLeft, FaChevronRight, FaPhoneAlt, FaSearch, FaEnvelope, FaArrowRight } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import Chatbot from '../components/ChatBot';
 import "../assets/css/landing.css";
 import fypbg from "../assets/images/fypbg.jpg";
 import fyplogo from "../assets/images/fyplogo1.png";
 import aboutus from "../assets/images/aboutusimg.jpg";
-import defaultInternshipImage from "../assets/images/p1.jpeg"; // Fallback image for internships
+import defaultInternshipImage from "../assets/images/p1.jpeg";
 import facebookIcon from "../assets/images/facebook.png";
 import twitterIcon from "../assets/images/twitter.png";
 import linkedinIcon from "../assets/images/linkedin.png";
@@ -970,7 +969,6 @@ const LandingPage = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [internships, setInternships] = useState([]);
-  const [isChatbotOpen, setIsChatbotOpen] = useState(false);
   const [activeInternship, setActiveInternship] = useState(0);
   const [filteredInternships, setFilteredInternships] = useState([]);
   const navigate = useNavigate();
@@ -980,16 +978,17 @@ const LandingPage = () => {
   const internshipsRef = useRef(null);
   const contactRef = useRef(null);
 
-  // Map of image filenames to imported images (if API returns filenames)
   const internshipImageMap = {
     "p1.jpeg": defaultInternshipImage,
-    // Add more mappings if you have other specific images
+    // Add more mappings if API returns other filenames
   };
 
   const fetchInternships = async () => {
     try {
       const response = await axios.get('https://internship-hub-backend.vercel.app/api/internships');
+      console.log('Internship images:', response.data.map(i => i.image));
       setInternships(response.data);
+      setFilteredInternships(response.data);
     } catch (error) {
       console.error('Failed to fetch internships:', error);
     }
@@ -1004,7 +1003,7 @@ const LandingPage = () => {
         (internship.description && internship.description.toLowerCase().includes(searchTerm.toLowerCase()))
       );
       setFilteredInternships(filtered);
-      setActiveInternship(0); // Reset carousel to first item when searching
+      setActiveInternship(0);
     }
   }, [searchTerm, internships]);
 
@@ -1024,10 +1023,6 @@ const LandingPage = () => {
     setDropdownOpen(false);
   };
 
-  const toggleChatbot = () => {
-    setIsChatbotOpen(!isChatbotOpen);
-  };
-
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
@@ -1042,10 +1037,10 @@ const LandingPage = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveInternship((prev) => (prev + 1) % internships.length);
+      setActiveInternship((prev) => (prev + 1) % filteredInternships.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, [internships.length]);
+  }, [filteredInternships.length]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -1122,6 +1117,7 @@ const LandingPage = () => {
                 src={fyplogo}
                 alt="Logo"
                 className="h-16 w-16 rounded-full object-cover border-2 border-white"
+                onError={() => console.error('Failed to load logo')}
               />
               <span className="text-xl font-bold hidden md:block">CUI Internship Hub</span>
             </motion.div>
@@ -1135,7 +1131,6 @@ const LandingPage = () => {
 
             <ul className="hidden md:flex space-x-8 items-center">
               {[
-                Godot
                 { name: "Home", ref: homeRef },
                 { name: "About Us", ref: aboutRef },
                 { name: "Services", ref: servicesRef },
@@ -1307,6 +1302,7 @@ const LandingPage = () => {
                   src={aboutus}
                   alt="About CUI Internship Hub"
                   className="rounded-xl shadow-2xl w-full h-auto object-cover"
+                  onError={() => console.error('Failed to load aboutus image')}
                 />
               </motion.div>
               
@@ -1467,7 +1463,7 @@ const LandingPage = () => {
               <FaSearch 
                 className="absolute right-4 top-1/2 transform -translate-y-1/2 text-blue-500 cursor-pointer"
                 onClick={() => {
-                  const currentDate = new Date("2025-06-01T22:43:00+05:00");
+                  const currentDate = new Date("2025-06-17T21:35:00+05:00");
                   const filtered = internships
                     .filter((internship) => {
                       if (!internship.deadline) return false;
@@ -1479,6 +1475,7 @@ const LandingPage = () => {
                       (internship.description && internship.description.toLowerCase().includes(searchTerm.toLowerCase()))
                     );
                   setFilteredInternships(filtered);
+                  setActiveInternship(0);
                 }}
               />
             </motion.div>
@@ -1491,7 +1488,7 @@ const LandingPage = () => {
                       .filter((internship) => {
                         if (!internship.deadline) return false;
                         const deadline = new Date(internship.deadline);
-                        const currentDate = new Date("2025-06-01T22:43:00+05:00");
+                        const currentDate = new Date("2025-06-17T21:35:00+05:00");
                         return !isNaN(deadline) && deadline >= currentDate;
                       })
                       .map((internship, index) => (
@@ -1510,6 +1507,7 @@ const LandingPage = () => {
                               src={internship.image ? internshipImageMap[internship.image] || defaultInternshipImage : defaultInternshipImage}
                               alt={internship.title}
                               className="w-full h-full object-cover"
+                              onError={() => console.error(`Failed to load image for ${internship.title}: ${internship.image}`)}
                             />
                           </div>
                           <div className="md:w-1/2 p-6 flex flex-col justify-center">
@@ -1552,7 +1550,7 @@ const LandingPage = () => {
                       .filter((internship) => {
                         if (!internship.deadline) return false;
                         const deadline = new Date(internship.deadline);
-                        const currentDate = new Date("2025-06-01T22:43:00+05:00");
+                        const currentDate = new Date("2025-06-17T21:35:00+05:00");
                         return !isNaN(deadline) && deadline >= currentDate;
                       })
                       .map((_, index) => (
@@ -1582,7 +1580,7 @@ const LandingPage = () => {
                 .filter((internship) => {
                   if (!internship.deadline) return false;
                   const deadline = new Date(internship.deadline);
-                  const currentDate = new Date("2025-06-01T22:43:00+05:00");
+                  const currentDate = new Date("2025-06-17T21:35:00+05:00");
                   return !isNaN(deadline) && deadline >= currentDate;
                 })
                 .slice(0, 6)
@@ -1598,6 +1596,7 @@ const LandingPage = () => {
                         src={internship.image ? internshipImageMap[internship.image] || defaultInternshipImage : defaultInternshipImage}
                         alt={internship.title}
                         className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                        onError={() => console.error(`Failed to load image for ${internship.title}: ${internship.image}`)}
                       />
                     </div>
                     <div className="p-6">
@@ -1777,6 +1776,7 @@ const LandingPage = () => {
                             src={social.icon}
                             alt={social.name}
                             className="w-7 h-7 object-contain"
+                            onError={() => console.error(`Failed to load ${social.name} icon`)}
                           />
                         </motion.a>
                       ))}
@@ -1797,6 +1797,7 @@ const LandingPage = () => {
                     src={fyplogo} 
                     alt="Logo" 
                     className="h-12 w-12 rounded-full border-2 border-white"
+                    onError={() => console.error('Failed to load footer logo')}
                   />
                   <span className="text-lg font-bold">CUI Internship Hub</span>
                 </div>
